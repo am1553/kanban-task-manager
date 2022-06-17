@@ -48,7 +48,7 @@ body button {
 }
 
 body img {
-  display: block2;
+  display: block;
 }
 
 .header {
@@ -156,6 +156,23 @@ body img {
 
 .board {
   min-height: calc(100vh - 4rem);
-  padding: 2rem 1rem;
+  padding: 2rem 0 0 1rem;
+}
+
+.board__platform_launch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  overflow-x: auto;
+}
+
+.board__platform_launch__children {
+  margin-right: 1rem;
 }
 /*# sourceMappingURL=index.css.map */

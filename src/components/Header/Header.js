@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import Logo from '../../assets/logo-mobile.svg'
-import LogoName from '../../assets/logo-dark.svg'
+import MobileLogo from '../../assets/logo-mobile.svg'
+import LogoNameDark from '../../assets/logo-dark.svg'
+import LogoNameLight from '../../assets/logo-light.svg'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
@@ -14,8 +15,8 @@ function Header({themeStyle}) {
   return (
     <div className='header' style={ themes.isTheme === 'light' ? themes.subLight : themes.subDark }>
         <div className="header__logo_wrapper">
-            <img src={ Logo } alt="" className='mobile'/>
-            <img src={ LogoName } alt="" className='desktop'/>
+            <img src={ MobileLogo } alt="" className='mobile' />
+            <img src={ themes.isTheme === 'light' ? LogoNameDark : LogoNameLight  } alt="" className='desktop'/>
         </div>
         <div className="header__boards">
             <h1>Platform Launch</h1>

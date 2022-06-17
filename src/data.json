@@ -1,7 +1,7 @@
 {
   "boards": [
     {
-      "name": "Platform Launch",
+      "name": "Platform Launch", 
       "columns": [
         {
           "name": "Todo",
@@ -70,7 +70,7 @@
         },
         {
           "name": "Doing",
-          "tasks": [
+           "tasks": [
             {
               "title": "Design settings and search pages",
               "description": "",

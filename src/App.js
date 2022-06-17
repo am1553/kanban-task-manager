@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Header from "./components/Header/Header";
 import Board from "./routes/Board/Board";
 import ThemeContext, { themes } from "./styles/theme-context";
@@ -9,6 +9,7 @@ function App() {
 
   themes.isTheme = theme;
 
+
   return (
     <div className="App">
       <ThemeContext.Provider value={ theme === 'light' ? themes.light : themes.dark }>
@@ -17,11 +18,6 @@ function App() {
           theme = { theme } 
           themeStyle = { theme === 'light' ? themes.subLight : themes.subDark }
         />
-
-      <button 
-        style={{width: '10rem', height: '3rem'}}
-        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      >Change Theme</button>
 
       </ThemeContext.Provider>
     </div>

@@ -22,7 +22,7 @@ function BoardHeader({ title, count, circleColor }) {
   return (
     <header className='board__header' style={headerStyle}>
         <div className="main__board__to_do__circle" style={circleStyle}></div>
-        <h4>{title} ({count}) </h4>
+        <h4>{title} { "(" + count + ")" } </h4>
     </header>
   )
 }

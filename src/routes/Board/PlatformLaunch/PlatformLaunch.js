@@ -1,21 +1,20 @@
 import React, { useState } from 'react'
 import BoardCard from '../../../components/BoardCard/BoardCard'
+import BoardColumn from '../../../components/BoardColumn/BoardColumn'
 import BoardHeader from '../../../components/BoardHeader/BoardHeader'
-import Data from '../../../data.json'
+import Doing from './components/Doing'
+import ToDo from './components/ToDo'
+import Done from './components/Done'
 
-
-function ToDo() {
-
-  console.log(Data.boards)
-
-    const [toDoCount, setToDoCount] = useState(0)
+function PlatformLaunch() {
 
   return (
-    <div className='board__to_do'>
-        <BoardHeader title='To Do' count={toDoCount} circleColor='#49C4E5'/>
-        <BoardCard title='Build UI for onboarding flow' subtasks='0 of 3 subtasks' />
+    <div className='board__platform_launch'>
+        <ToDo />
+        <Doing />
+        <Done />
     </div>
   )
 }
 
-export default ToDo
+export default PlatformLaunch
