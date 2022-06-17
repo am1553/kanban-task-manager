@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Header from "./components/Header/Header";
+import Board from "./routes/Board/Board";
+import ThemeContext, { themes } from "./styles/theme-context";
 
 function App() {
+
+  const [theme, setTheme] = useState('light')
+
+  themes.isTheme = theme;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeContext.Provider value={ theme === 'light' ? themes.light : themes.dark }>
+        <Header />
+        <Board 
+          theme = { theme } 
+          themeStyle = { theme === 'light' ? themes.subLight : themes.subDark }
+        />
+
+      <button 
+        style={{width: '10rem', height: '3rem'}}
+        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      >Change Theme</button>
+
+      </ThemeContext.Provider>
     </div>
   );
 }
