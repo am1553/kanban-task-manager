@@ -2,6 +2,7 @@ import React from "react";
 
 export const themes = {
     isTheme: '',
+
     dark: {
         backgroundColor: '#20212C',
         color: '#fff'
@@ -21,6 +22,6 @@ export const themes = {
 }
 
 
-const ThemeContext = React.createContext(themes.dark)
+const ThemeContext = React.createContext(themes.light)
 
 export default ThemeContext

@@ -1,35 +1,52 @@
 import React, { useState } from 'react'
+import ChevDown from '../../assets/icon-chevron-down.svg'
+import ChevUp from '../../assets/icon-chevron-up.svg'
+import LightLogo from '../../assets/logo-light.svg'
+import DarkLogo from '../../assets/logo-dark.svg'
 import MobileLogo from '../../assets/logo-mobile.svg'
-import LogoNameDark from '../../assets/logo-dark.svg'
-import LogoNameLight from '../../assets/logo-light.svg'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
-import MoreVertIcon from '@mui/icons-material/MoreVert'
-import AddIcon from '@mui/icons-material/Add'
+import AddIcon from '@mui/icons-material/Add';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import NavPanel from '../Navigation/NavPanel'
 import { themes } from '../../styles/theme-context'
 
-function Header({themeStyle}) {
+function Header({ set_board, board, set_theme }) {
 
     const [boardNav, setBoardNav] = useState(false)
 
+
   return (
-    <div className='header' style={ themes.isTheme === 'light' ? themes.subLight : themes.subDark }>
-        <div className="header__logo_wrapper">
-            <img src={ MobileLogo } alt="" className='mobile' />
-            <img src={ themes.isTheme === 'light' ? LogoNameDark : LogoNameLight  } alt="" className='desktop'/>
-        </div>
-        <div className="header__boards">
+
+    <div className='header' style={ themes.isTheme === 'light' ? themes.subLight : themes.subDark } >
+
+        <img src={ MobileLogo } alt="" className='header__mobile_logo' />
+        
+        <img src={ DarkLogo } alt="" className='header__desktop_logo' />
+
+        <nav className='header__board_nav' onClick={ () => setBoardNav(!boardNav) }>
             <h1>Platform Launch</h1>
-            <button onClick={ () => setBoardNav(!boardNav) }>
-                {
-                    boardNav ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon /> 
-                }
+            <img src={ boardNav ? ChevUp : ChevDown } alt="" />
+        </nav>
+
+        <nav className='header__task_nav'>
+
+            <button className='header__task_nav__add'>
+                <AddIcon style={ { color: '#fff', fontSize: '1.25rem' } }/>
             </button>
-        </div>
-        <div className="header__right_nav">
-            <button className='add_icon'><AddIcon /></button>
-            <button className='vert_icon'><MoreVertIcon style={ {color: '#828FA3'} } /></button>
-        </div>
+
+            <button className='header__task_nav__menu'>
+                <MoreVertIcon style={ themes.isTheme === 'light' ? themes.light : themes.dark }/>
+            </button>
+
+        </nav>
+
+        <NavPanel 
+            set_board = { set_board } 
+            board = { board } 
+            set_theme = { set_theme } 
+            nav = { boardNav }
+            set_board_nav = { setBoardNav } 
+        />
+        <div className="overlay" style={ boardNav ? { display: 'block' } : { display: 'none' } } onClick={ () => setBoardNav(false) }></div>
     </div>
   )
 }

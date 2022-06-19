@@ -1,0 +1,55 @@
+.header__nav_panel {
+    width: 70%;
+    position: absolute;
+    left: 50%;
+    top: 5rem;
+    transform: translateX(-50%);
+    list-style-type: none;
+    border-radius: 1rem;
+    z-index: 1000;
+    header {
+        padding: 0 2rem;
+    }
+    li {
+        cursor: pointer;
+        width: 90%;
+        border-radius: 0 1.5rem 1.5rem 0;
+        img {
+            margin-right: 1rem;
+        }
+    }
+    h3 {
+        text-transform: uppercase;
+        opacity: 0.5;
+    }
+    h3, li {
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    li {
+        padding-left: 2rem;
+    }
+
+    &__create_new_board {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 2rem;
+        h3 {
+            opacity: 1;
+        }
+        button {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex: 1;
+            background-color: transparent;
+            border: none;
+            color: $main-purple;
+            margin-left: 0.5rem;
+        }
+    }
+}

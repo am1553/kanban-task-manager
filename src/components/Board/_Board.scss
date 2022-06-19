@@ -1,0 +1,44 @@
+.main__board {
+    display: flex;
+    overflow-x: scroll;
+    position: relative;
+    min-height: 100vh;
+    &__board_column {
+        width: 100%;
+    }
+    &__expanded_card {
+        border-radius: 0.5rem;
+        width: 90%;
+        margin: 0 auto;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        padding: 0 2rem;
+        transition: all 250ms ease-in-out;
+        height: 0;
+        overflow: hidden;
+        z-index: 100;
+        .overall {
+            header {
+                display: flex;
+                align-items: center;
+            }
+            p {
+                margin: 2rem 0;
+            }
+        }
+        .subtasks {
+            h4 {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__expanded_card-active {
+        height: 25rem;
+        padding: 2rem;
+        transition: all 500ms ease-in-out;
+    }
+
+}
